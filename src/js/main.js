@@ -9,10 +9,10 @@ class JokeGenerator {
    * @param {string} name - The name of the user to greet.
    */
   constructor (name) {
-    this.setupElement = document.querySelector('.setup')
-    this.punchlineElement = document.querySelector('.punchline')
-    this.jokeButton = document.querySelector('.joke-btn')
-    this.greetingElement = document.getElementById('greeting')
+    this.setupElement = document.querySelector('[data-setup]')
+    this.punchlineElement = document.querySelector('[data-punchline]')
+    this.jokeButton = document.querySelector('[data-joke-btn]')
+    this.greetingElement = document.querySelector('[data-greeting]')
     this.name = name
 
     // Attach event listener to the button.
@@ -46,7 +46,7 @@ class JokeGenerator {
       this.setupElement.textContent = joke.setup
       this.punchlineElement.textContent = joke.punchline
 
-      // Update greeting after fetching a joke
+      // Update greeting after fetching a joke.
       this.displayGreeting()
     }
   }
@@ -68,16 +68,16 @@ class JokeGenerator {
 }
 
 /**
- * Handles modal form submission and show the joke generator.
+ * Handles modal form submission and shows the joke generator.
  */
 function handleNameSubmission () {
-  const nameInput = document.getElementById('name-input').value
+  const nameInput = document.querySelector('[data-name-input]').value
   if (nameInput) {
     // Hide the modal.
-    document.getElementById('name-modal').style.display = 'none'
+    document.querySelector('[data-name-modal]').style.display = 'none'
 
     // Show the joke generator container.
-    document.getElementById('joke-container').style.display = 'block'
+    document.querySelector('[data-joke-container]').style.display = 'block'
 
     // Initialize the JokeGenerator with the user's name.
     // eslint-disable-next-line no-unused-vars
@@ -87,8 +87,10 @@ function handleNameSubmission () {
   }
 }
 
-// Initialize the modal logic.
 document.addEventListener('DOMContentLoaded', () => {
-  const saveNameBtn = document.getElementById('save-name-btn')
-  saveNameBtn.addEventListener('click', handleNameSubmission)
+  // Ensure the save button calls the handleNameSubmission function.
+  const saveNameBtn = document.querySelector('[data-save-name-btn]')
+  if (saveNameBtn) {
+    saveNameBtn.addEventListener('click', handleNameSubmission)
+  }
 })

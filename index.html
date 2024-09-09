@@ -4,29 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Random Joke Generator</title>
+  <script type="module" src="/src/js/main.js"></script>
   <link rel="stylesheet" href="/src/css/style.css">
 </head>
 <body>
   <!-- Modal for name input -->
-  <div id="name-modal" class="modal">
+  <div data-name-modal class="modal">
     <div class="modal-content">
       <h2>Welcome!</h2>
       <p>Please enter your name to get started:</p>
-      <input type="text" id="name-input" placeholder="Enter your name">
-      <button id="save-name-btn">Save Name</button>
+      <input type="text" data-name-input placeholder="Enter your name">
+      <button data-save-name-btn>Save Name</button>
     </div>
   </div>
 
   <!-- Main content, initially hidden until the name is entered -->
-  <div id="joke-container" class="container" style="display: none;">
-    <h1 id="greeting"></h1>
+  <div data-joke-container class="container" style="display: none;">
+    <h1 data-greeting></h1>
     <div class="joke-container">
-      <p class="setup">Click the button to get a joke!</p>
-      <p class="punchline"></p>
+      <p data-setup>Click the button to get a joke!</p>
+      <p data-punchline></p>
     </div>
-    <button class="joke-btn">Get a New Joke!</button>
+    <button data-joke-btn>Get a New Joke!</button>
   </div>
 
-  <script type="module" src="/src/js/main.js"></script>
 </body>
 </html>
