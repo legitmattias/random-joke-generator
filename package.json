@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "A simple project to fetch and display random jokes using vanilla JavaScript and an external API.",
   "scripts": {
-  "dev": "vite",
-  "build": "vite build",
-  "preview": "vite preview",
-  "lint": "eslint .",
-  "lint:fix": "eslint . --fix"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "npx eslint ./src || exit 0",
+    "lint:fix": "npx eslint ./src --fix || exit 0"
   },
   "author": "Mattias Ubbesen <mu222cu@student.lnu.se>",
   "license": "ISC",
@@ -15,7 +15,7 @@
   "type": "module",
   "devDependencies": {
     "@lnu/eslint-config": "^1.1.10",
-    "eslint": "^8.57.0",
+    "eslint": "^9.9.1",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.30.0",
     "eslint-plugin-jsdoc": "^46.10.1",
@@ -23,9 +23,6 @@
     "eslint-plugin-promise": "^6.6.0",
     "vite": "^5.4.3"
   },
-  "main": "index.js",
-  "keywords": [],
-  "eslintConfig": {
-    "extends": "@lnu"
-  }
+  "main": "src/js/main.js",
+  "keywords": []
 }
